@@ -17,7 +17,7 @@ All notable changes to this project will be documented in this file. See [standa
 ### Features
 
 * Add gulp icon to gulp-config.js files ([83c058f](https://github.com/equinusocio/vsc-material-theme/commit/83c058f)), closes [#128](https://github.com/equinusocio/vsc-material-theme/issues/128)
-* Add zephyr file icon ([9e64343](https://github.com/equinusocio/vsc-material-theme/commit/9e64343)), closes [#124](https://github.com/equinusocio/vsc-material-theme/issues/124)
+* Add zephir file icon ([9e64343](https://github.com/equinusocio/vsc-material-theme/commit/9e64343)), closes [#124](https://github.com/equinusocio/vsc-material-theme/issues/124)
 
 
 
