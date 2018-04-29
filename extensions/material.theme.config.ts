@@ -25,8 +25,9 @@ export function activate() {
     }
   });
 
-  if (config.has('materialTheme.accent')) {
-    config.update('materialTheme.accent', undefined, true);
+  // Delete old configuration, must remove with next major release
+  if (config.has('materialTheme.cache.workbench')) {
+    config.update('materialTheme.cache.workbench', undefined, true);
   }
 
   if (shouldShowChangelog()) {
