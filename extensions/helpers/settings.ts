@@ -19,7 +19,7 @@ export function getAccent(): string | undefined {
  * @returns {*}
  */
 export function getCustomSettings(): IThemeCustomProperties {
-  return vscode.workspace.getConfiguration().get<IThemeCustomProperties>('materialTheme.cache.workbench.settings', {});
+  return vscode.workspace.getConfiguration().get<IThemeCustomProperties>('materialTheme', {});
 }
 
 /**
@@ -58,13 +58,11 @@ export function isMaterialThemeIcons(themeIconsName: string): boolean {
 /**
  * Sets a custom property in custom settings
  * @export
- * @param {string} settingname
+ * @param {string} settingName
  * @param {*} value
  */
-export function setCustomSetting(settingname: string, value: any): Thenable<void> {
-  let settings: any = getCustomSettings();
-  settings[settingname] = value;
-  return vscode.workspace.getConfiguration().update('materialTheme.cache.workbench.settings', settings, true);
+export function setCustomSetting(settingName: string, value: any): Thenable<void> {
+  return vscode.workspace.getConfiguration().update(`materialTheme.${settingName}`, value, true);
 }
 
 /**
@@ -78,7 +76,7 @@ export function setCustomSettings(settingsObject: IThemeCustomProperties): Thena
 
   Object.keys(settingsObject).forEach(key => settings[key] = (settingsObject as any)[key]);
 
-  return vscode.workspace.getConfiguration().update('materialTheme.cache.workbench.settings', settings, true);
+  return vscode.workspace.getConfiguration().update('materialTheme', settings, true);
 }
 
 /**
@@ -89,5 +87,5 @@ export function setCustomSettings(settingsObject: IThemeCustomProperties): Thena
 export function updateAccent(accentName: string): Thenable<void> {
   const prevaccent = getAccent();
   return setCustomSetting('accentPrevious', prevaccent)
-    .then(() => setCustomSetting('accent', accentName));
+    .then(() => setCustomSetting('accent', accentName))
 }
