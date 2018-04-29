@@ -66,26 +66,12 @@ export function setCustomSetting(settingName: string, value: any): Thenable<void
 }
 
 /**
- * Sets custom properties in custom settings
- * @export
- * @param {*} settingsObject
- * @returns {Thenable<void>}
- */
-export function setCustomSettings(settingsObject: IThemeCustomProperties): Thenable<void> {
-  let settings: any = getCustomSettings();
-
-  Object.keys(settingsObject).forEach(key => settings[key] = (settingsObject as any)[key]);
-
-  return vscode.workspace.getConfiguration().update('materialTheme', settings, true);
-}
-
-/**
  * Updates accent name
  * @export
  * @param {string} accentName
  */
 export function updateAccent(accentName: string): Thenable<void> {
-  const prevaccent = getAccent();
-  return setCustomSetting('accentPrevious', prevaccent)
+  const prevAccent = getAccent();
+  return setCustomSetting('accentPrevious', prevAccent)
     .then(() => setCustomSetting('accent', accentName))
 }
