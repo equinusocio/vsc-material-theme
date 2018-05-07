@@ -22,7 +22,7 @@ export function getCustomSettings(): IThemeCustomProperties {
  * Checks if a given string could be an accent
  */
 export function isAccent(accentName: string, defaults: IDefaults): boolean {
-  return Object.keys(defaults.accents).filter(name => name === accentName).length > 0;
+  return Boolean(Object.keys(defaults.accents).find(name => name === accentName));
 }
 
 /**
