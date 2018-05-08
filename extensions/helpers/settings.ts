@@ -30,7 +30,7 @@ export function isAccent(accentName: string, defaults: IDefaults): boolean {
  */
 export function isMaterialTheme(themeName: string): boolean {
   const packageJSON = getPackageJSON();
-  return packageJSON.contributes.themes.filter(contrib => contrib.label === themeName).length > 0;
+  return Boolean(packageJSON.contributes.themes.find(contrib => contrib.label === themeName));
 }
 
 /**
@@ -38,7 +38,7 @@ export function isMaterialTheme(themeName: string): boolean {
  */
 export function isMaterialThemeIcons(themeIconsName: string): boolean {
   const packageJSON = getPackageJSON();
-  return packageJSON.contributes.iconThemes.filter(contribute => contribute.id === themeIconsName).length > 0;
+  return Boolean(packageJSON.contributes.iconThemes.find(contribute => contribute.id === themeIconsName));
 }
 
 /**
