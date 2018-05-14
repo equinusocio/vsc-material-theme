@@ -54,6 +54,11 @@
   "contributes": {
     "commands": [
       {
+        "command": "materialTheme.toggleApplyIcons",
+        "title": "Toggle icons auto-apply ",
+        "category": "🎨 Material Theme"
+      },
+      {
         "command": "materialTheme.setAccent",
         "title": "Set accent color",
         "category": "🎨 Material Theme"
@@ -80,6 +85,11 @@
         "materialTheme.accentPrevious": {
           "type": "string",
           "description": "Previous accent color selected"
+        },
+        "materialTheme.autoApplyIcons": {
+          "type": "boolean",
+          "description": "Enable/disable auto-apply of Material Theme icons",
+          "default": true
         }
       }
     },

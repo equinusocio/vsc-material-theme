@@ -19,6 +19,13 @@ export function getCustomSettings(): IThemeCustomProperties {
 }
 
 /**
+ * Get autoApplyIcons
+ */
+export function isAutoApplyEnable(): boolean {
+  return vscode.workspace.getConfiguration().get<boolean>('materialTheme.autoApplyIcons', true);
+}
+
+/**
  * Checks if a given string could be an accent
  */
 export function isAccent(accentName: string, defaults: IDefaults): boolean {
