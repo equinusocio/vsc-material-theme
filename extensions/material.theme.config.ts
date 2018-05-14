@@ -3,13 +3,10 @@ import {
   commands as Commands
 } from 'vscode';
 
-import {THEME_ACCENTS_SETTER} from './commands/accents-setter/index';
-import {THEME_ICONS} from './commands/theme-icons/index';
+import * as ThemeCommands from './commands';
 import {shouldShowChangelog, showChangelog} from './helpers/changelog';
-import {reloadWindow, getCurrentThemeID, setIconsID} from './helpers/vscode';
-
-const isMaterialTheme = (currentTheme: string): boolean =>
-  currentTheme.includes('Material Theme');
+import {reloadWindow, getCurrentThemeID} from './helpers/vscode';
+import {isMaterialTheme} from './helpers/settings';
 
 export function activate() {
   const config = Workspace.getConfiguration();
@@ -20,9 +17,10 @@ export function activate() {
     const currentTheme = getCurrentThemeID();
     // tslint:disable-next-line:early-exit
     if (isColorTheme && isMaterialTheme(currentTheme)) {
-      setIconsID('eq-material-theme-icons')
-        .then(() => THEME_ICONS().catch(error => console.trace(error)))
-        .then(() => reloadWindow());
+      // TODO: check for `autoFix` flag
+      ThemeCommands.fixIcons()
+        .then(() => reloadWindow())
+        .catch((error: NodeJS.ErrnoException) => console.trace(error));
     }
   });
 
@@ -36,11 +34,17 @@ export function activate() {
   }
 
   // Registering commands
-  Commands.registerCommand('materialTheme.setAccent', () => THEME_ACCENTS_SETTER());
-  Commands.registerCommand('materialTheme.fixIcons', () =>
-    THEME_ICONS()
+  Commands.registerCommand('materialTheme.setAccent', () =>
+    ThemeCommands.accentsSetter()
+      // TODO: check for `autoFix` flag
+      .then(() => ThemeCommands.fixIcons())
       .then(() => reloadWindow())
-      .catch(err => console.trace(err))
+      .catch((err: NodeJS.ErrnoException) => console.trace(err))
+  );
+  Commands.registerCommand('materialTheme.fixIcons', () =>
+    ThemeCommands.fixIcons()
+      .then(() => reloadWindow())
+      .catch((err: NodeJS.ErrnoException) => console.trace(err))
   );
   Commands.registerCommand('materialTheme.showChangelog', () => showChangelog());
 }
