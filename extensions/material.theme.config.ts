@@ -13,10 +13,10 @@ export function activate() {
 
   // Listen on set theme: when the theme is Material Theme, just adjust icon and accent.
   Workspace.onDidChangeConfiguration(event => {
-    const isColorTheme = event.affectsConfiguration('workbench.colorTheme');
+    const isColorOrIconTheme = event.affectsConfiguration('workbench.colorTheme') || event.affectsConfiguration('workbench.iconTheme');
     const currentTheme = getCurrentThemeID();
     // tslint:disable-next-line:early-exit
-    if (isColorTheme && isMaterialTheme(currentTheme)) {
+    if (isMaterialTheme(currentTheme) && isColorOrIconTheme) {
       // TODO: check for `autoFix` flag
       ThemeCommands.fixIcons()
         .then(() => reloadWindow())
