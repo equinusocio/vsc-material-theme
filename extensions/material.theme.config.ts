@@ -1,6 +1,7 @@
 import {
   workspace as Workspace,
   commands as Commands,
+  window as Window,
   ConfigurationChangeEvent
 } from 'vscode';
 
@@ -9,20 +10,31 @@ import {shouldShowChangelog, showChangelog} from './helpers/changelog';
 import {reloadWindow, getCurrentThemeID} from './helpers/vscode';
 import {isMaterialTheme, isAutoApplyEnable} from './helpers/settings';
 
-const onChangeConfiguration = (event: ConfigurationChangeEvent) => {
-  const isColorTheme = event.affectsConfiguration('workbench.colorTheme');
-  const currentTheme = getCurrentThemeID();
-  if (!isMaterialTheme(currentTheme) || !isColorTheme) {
-    return;
-  }
+const INFO_MESSAGE = 'You should reload the window for full activate the Material Theme.';
 
-  if (!isAutoApplyEnable()) {
-    return;
-  }
-
+const icons = () =>
   ThemeCommands.fixIcons()
     .then(() => reloadWindow())
     .catch((error: NodeJS.ErrnoException) => console.trace(error));
+
+const infoMessage = async () => {
+  if (await Window.showInformationMessage(INFO_MESSAGE, 'Reload', 'Ok') === 'Reload') {
+    icons();
+  }
+};
+
+const onChangeConfiguration = (event: ConfigurationChangeEvent) => {
+  const isColorTheme = event.affectsConfiguration('workbench.colorTheme');
+  const currentTheme = getCurrentThemeID();
+
+  switch (true) {
+    case !isMaterialTheme(currentTheme) || !isColorTheme:
+      return;
+    case !isAutoApplyEnable():
+      return infoMessage();
+    default:
+      icons();
+  }
 };
 
 export function activate() {
@@ -43,20 +55,9 @@ export function activate() {
   // Registering commands
   Commands.registerCommand('materialTheme.setAccent', async () => {
     await ThemeCommands.accentsSetter();
-
-    if (!isAutoApplyEnable()) {
-      return;
-    }
-
-    ThemeCommands.fixIcons()
-      .then(() => reloadWindow())
-      .catch((err: NodeJS.ErrnoException) => console.trace(err));
+    return isAutoApplyEnable() ? icons() : infoMessage();
   });
-  Commands.registerCommand('materialTheme.fixIcons', () =>
-    ThemeCommands.fixIcons()
-      .then(() => reloadWindow())
-      .catch((err: NodeJS.ErrnoException) => console.trace(err))
-  );
+  Commands.registerCommand('materialTheme.fixIcons', () => icons());
   Commands.registerCommand('materialTheme.toggleApplyIcons', () => ThemeCommands.toggleApplyIcons());
   Commands.registerCommand('materialTheme.showChangelog', () => showChangelog());
 }
