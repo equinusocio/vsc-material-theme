@@ -18,7 +18,7 @@ const icons = () =>
     .catch((error: NodeJS.ErrnoException) => console.trace(error));
 
 const infoMessage = async () => {
-  if (await Window.showInformationMessage(INFO_MESSAGE, 'Reload', 'Ok') === 'Reload') {
+  if (await Window.showInformationMessage(INFO_MESSAGE, 'Reload now', 'Cancel') === 'Reload') {
     icons();
   }
 };
