@@ -90,6 +90,11 @@
           "type": "boolean",
           "description": "Enable/disable auto-apply of Material Theme icons",
           "default": true
+        },
+        "materialTheme.fixIconsRunning": {
+          "type": "boolean",
+          "description": "For checking if the command is currently acting",
+          "default": false
         }
       }
     },

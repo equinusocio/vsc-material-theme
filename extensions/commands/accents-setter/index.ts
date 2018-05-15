@@ -93,7 +93,7 @@ const isValidColour = (colour: string | null | undefined): boolean =>
 /**
  * Sets workbench options
  */
-const setWorkbenchOptions = (accentSelected: string | undefined, config: any): Thenable<void> =>
+const setWorkbenchOptions = (accentSelected: string | undefined, config: any): Thenable<string> =>
   vscode.workspace.getConfiguration().update('workbench.colorCustomizations', config, true)
     .then(() => updateAccent(accentSelected),
     reason => vscode.window.showErrorMessage(reason));
@@ -101,7 +101,7 @@ const setWorkbenchOptions = (accentSelected: string | undefined, config: any): T
 /**
  * VSCode command
  */
-export default async (): Promise<void> => {
+export default async (): Promise<boolean> => {
   const themeConfigCommon = getDefaultValues();
   const purgeColourKey: string = 'Remove accents';
   const options: string[] = Object.keys(themeConfigCommon.accents).concat(purgeColourKey);
@@ -110,7 +110,7 @@ export default async (): Promise<void> => {
   const accentSelected = await vscode.window.showQuickPick(options);
 
   if (accentSelected === null || accentSelected === undefined) {
-    return;
+    Promise.resolve(null);
   }
 
   const config: any = vscode.workspace.getConfiguration().get('workbench.colorCustomizations');
@@ -118,10 +118,12 @@ export default async (): Promise<void> => {
   switch (accentSelected) {
     case purgeColourKey:
       assignColorCustomizations(undefined, config);
-      return setWorkbenchOptions(undefined, config);
+      await setWorkbenchOptions(undefined, config);
+      return Promise.resolve(true);
     default:
       assignColorCustomizations(themeConfigCommon.accents[accentSelected], config);
-      return setWorkbenchOptions(accentSelected, config);
+      await setWorkbenchOptions(accentSelected, config);
+      return Promise.resolve(true);
   }
 
 };

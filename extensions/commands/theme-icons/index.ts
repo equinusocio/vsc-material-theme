@@ -11,9 +11,10 @@ import {
 import {
   isAccent,
   getCustomSettings,
-  isMaterialTheme
+  isMaterialTheme,
+  setCustomSetting
 } from './../../helpers/settings';
-import {getCurrentThemeID, setIconsID, getCurrentThemeIconsID} from './../../helpers/vscode';
+import {getCurrentThemeID, setIconsID, getCurrentThemeIconsID, reloadWindow} from './../../helpers/vscode';
 import {CHARSET} from './../../consts/files';
 import {IPackageJSONThemeIcons} from './../../interfaces/ipackage.json';
 import {IThemeIconsIconPath, IThemeIcons} from './../../interfaces/itheme-icons';
@@ -46,6 +47,8 @@ export default async () => {
   if (!isMaterialTheme(themeLabel)) {
     return deferred.resolve();
   }
+
+  await setCustomSetting('fixIconsRunning', true);
 
   const DEFAULTS = getDefaultValues();
   const CUSTOM_SETTINGS = getCustomSettings();
@@ -83,14 +86,17 @@ export default async () => {
   const themePath: string = getAbsolutePath(themeIconsContribute.path);
   fs.writeFile(themePath, JSON.stringify(theme), {
     encoding: CHARSET
-  }, err => {
+  }, async err => {
     if (err) {
       deferred.reject(err);
       return;
     }
 
+    await setCustomSetting('fixIconsRunning', false);
     deferred.resolve();
   });
 
-  return promise;
+  return promise
+    .then(() => reloadWindow())
+    .catch((error: NodeJS.ErrnoException) => console.trace(error));
 };
