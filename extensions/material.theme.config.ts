@@ -11,6 +11,7 @@ import {reloadWindow, getCurrentThemeID} from './helpers/vscode';
 import {isMaterialTheme, isAutoApplyEnable} from './helpers/settings';
 
 const INFO_MESSAGE = 'You should reload the window for full activate the Material Theme.';
+const OPTIONS = {ok: 'Reload now', cancel: 'Cancel'};
 
 const icons = () =>
   ThemeCommands.fixIcons()
@@ -18,7 +19,7 @@ const icons = () =>
     .catch((error: NodeJS.ErrnoException) => console.trace(error));
 
 const infoMessage = async () => {
-  if (await Window.showInformationMessage(INFO_MESSAGE, 'Reload now', 'Cancel') === 'Reload') {
+  if (await Window.showInformationMessage(INFO_MESSAGE, OPTIONS.ok, OPTIONS.cancel) === OPTIONS.ok) {
     icons();
   }
 };
