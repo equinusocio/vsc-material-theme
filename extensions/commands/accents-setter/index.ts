@@ -52,7 +52,7 @@ export default async (): Promise<boolean> => {
   const accentSelected = await vscode.window.showQuickPick(options);
 
   if (accentSelected === null || accentSelected === undefined) {
-    Promise.resolve(null);
+    return Promise.resolve(null);
   }
 
   const config: any = vscode.workspace.getConfiguration().get('workbench.colorCustomizations');
