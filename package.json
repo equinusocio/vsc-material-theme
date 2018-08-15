@@ -118,12 +118,6 @@
           "description": "Useful when autoApplyIcons is false and you want to be asked to reload the window when needed",
           "default": true,
           "scope": "window"
-        },
-        "materialTheme.fixIconsRunning": {
-          "type": "boolean",
-          "description": "For checking if the command is currently acting",
-          "default": false,
-          "scope": "window"
         }
       }
     },
