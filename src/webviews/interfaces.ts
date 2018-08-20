@@ -29,6 +29,10 @@ export interface SettingsBootstrap extends Bootstrap {
   defaults: IDefaults;
 }
 
+export interface ReleaseNotesBootstrap extends Bootstrap {
+  something: 'something';
+}
+
 declare global {
   interface Window { bootstrap: Bootstrap | SettingsBootstrap; }
 }

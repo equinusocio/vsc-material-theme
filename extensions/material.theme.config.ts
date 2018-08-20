@@ -10,12 +10,13 @@ import {onChangeConfiguration} from './helpers/configuration-change';
 import {changelogMessage, installationMessage} from './helpers/messages';
 import checkInstallation from './helpers/check-installation';
 import writeChangelog from './helpers/write-changelog';
-import {SettingsWebview} from '../src/webviews/Settings';
+import {ReleaseNotesWebview} from '../src/webviews/ReleaseNotes';
+import handleAutoapply from './helpers/handle-autoapply';
 
 export async function activate(context: ExtensionContext) {
   const config = Workspace.getConfiguration();
   const installationType = checkInstallation();
-  const settingsView = new SettingsWebview(context);
+  const releaseNotesView = new ReleaseNotesWebview(context);
 
   writeChangelog();
 
@@ -48,5 +49,5 @@ export async function activate(context: ExtensionContext) {
   Commands.registerCommand('materialTheme.toggleApplyIcons', () => ThemeCommands.toggleApplyIcons());
   Commands.registerCommand('materialTheme.showChangelog', () => ThemeCommands.showChangelog());
 
-  Commands.registerCommand('materialTheme.showSettingsEditor', () => settingsView.show());
+  Commands.registerCommand('materialTheme.showReleaseNotes', () => releaseNotesView.show());
 }

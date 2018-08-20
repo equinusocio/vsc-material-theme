@@ -84,8 +84,8 @@
         "category": "🎨 Material Theme"
       },
       {
-        "command": "materialTheme.showSettingsEditor",
-        "title": "Settings Editor (preview)",
+        "command": "materialTheme.showReleaseNotes",
+        "title": "Release Notes (preview)",
         "category": "🎨 Material Theme"
       }
     ],
