@@ -1,7 +1,5 @@
 import {WebviewController} from './Webview';
 import {
-  workspace as Workspace,
-
   ExtensionContext
 } from 'vscode';
 import {ReleaseNotesBootstrap} from './interfaces';
