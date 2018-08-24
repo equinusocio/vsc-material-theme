@@ -6,7 +6,10 @@ body {
 
 
 .Container {
-  max-width: 40rem;
+  max-width: 900px;
+  min-width: 400px;
+  width: 100%;
+  display: block;
   margin: 0 auto;
   padding: 0 32px;
   box-sizing: border-box;
@@ -94,10 +97,15 @@ body {
   display: flex;
   font-size: 14px;
   margin: 8px 0;
+  -webkit-user-select: none;
+  user-select: none;
+  cursor: default;
+  white
 }
 
 .CommitBadge {
-  display: inline;
+  display: inline-flex;
+  justify-content: center;
   font-size: 10px;
   line-height: 1;
   box-sizing: border-box;
