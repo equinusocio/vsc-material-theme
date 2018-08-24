@@ -6,31 +6,29 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Material Theme Release Notes</title>
 
-  <link rel="stylesheet" href="{{root}}/ui/release-notes/style.css">
-  <link rel="stylesheet" href="https://unpkg.com/@native-elements/native-elements/dist/native-elements.css">
+  <link rel="stylesheet" href="{{root}}/ui/release-notes.css">
 </head>
 <body>
-  <header>
-    <h1>Material Theme Release Notes (preview)</h1>
-  </header>
+  <main class="Container">
 
-  <main>
-    <button ne-button tabindex="2" autofocus>Button</button>
+    <section class="Release">
+      <header class="Release__Header">
+        <span class="Release__Number">2.3.0</span>
+        <h2 class="Release__Title">August 2018</h2>
+      </header>
+      <ul class="Release-List">
+        <li><span class="CommitBadge CommitBadge--Fixed">FIXED</span>Many UI fixes and small improvements</li>
+        <li><span class="CommitBadge CommitBadge--Fixed">FIXED</span>General colors and contrast</li>
+        <li><span class="CommitBadge CommitBadge--Breaking">BREAKING</span>New file icons auto applying and notifications behaviors</li>
+        <li><span class="CommitBadge CommitBadge--New">NEW</span>New file icons</li>
+        <li><span class="CommitBadge CommitBadge--New">NEW</span>Support for the editor breadcrumb</li>
+        <li><span class="CommitBadge CommitBadge--New">NEW</span>Support for custom menus (Windows/Linux)</li>
+        <li><span class="CommitBadge CommitBadge--New">NEW</span>Support for editor new settings view</li>
+        <li><span class="CommitBadge CommitBadge--New">NEW</span>Add new Release Notes command</li>
+      </ul>
+    </section>
 
-    <div class="ReleaseNotesContainer">
-      <div>
-        <label>Fix file icons</label>
-        <input id="fixIconsCTA" type="submit" value="Fix">
-      </div>
-
-      <div class="AccentsRadioContainer" data-setting="accentSelector">
-        <!-- Populated by js -->
-      </div>
-    </div>
   </main>
-
-  <input value="Example input">
-
   <script type="text/javascript">
     window.bootstrap = '{{bootstrap}}';
   </script>
