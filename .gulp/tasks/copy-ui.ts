@@ -13,12 +13,12 @@ export default gulp.task('build:copy-ui', callback => {
   try {
       ensureDir(path.resolve(PATHS.UI));
       fs.copyFileSync(
-        path.join(PATHS.SRC, 'webviews', 'ui', 'settings', 'settings.html'),
-        path.join(PATHS.UI, 'settings.html')
+        path.join(PATHS.SRC, 'webviews', 'ui', 'release-notes', 'release-notes.html'),
+        path.join(PATHS.UI, 'release-notes.html')
       );
       fs.copyFileSync(
-        path.join(PATHS.SRC, 'webviews', 'ui', 'settings', 'style.css'),
-        path.join(PATHS.UI, 'settings.css')
+        path.join(PATHS.SRC, 'webviews', 'ui', 'release-notes', 'style.css'),
+        path.join(PATHS.UI, 'release-notes.css')
       );
   } catch (error) {
     return callback(error);
