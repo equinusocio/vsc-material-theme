@@ -103,7 +103,8 @@ body {
   white
 }
 
-.CommitBadge {
+.Release-List li::before {
+  content: attr(data-type);
   display: inline-block;
   font-size: 10px;
   line-height: 1;
@@ -116,24 +117,21 @@ body {
   text-transform: uppercase;
   text-align: center;
   color: #FFF;
-  font-weight: 600;
 }
 
 
-.CommitBadge--Fixed {
+[data-type="fixed"]::before {
   background-color: #4242f4;
 }
 
-.CommitBadge--Improved {
+[data-type="improved"]::before {
   background-color: #6f42c1;
 }
 
-.CommitBadge--New {
+[data-type="new"]::before {
   background-color: #05a87a;
 }
 
-.CommitBadge--Breaking {
+[data-type="breaking"]::before {
   background-color: #ba0935;
 }
-
-
