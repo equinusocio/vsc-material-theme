@@ -37,7 +37,7 @@ export async function activate(context: ExtensionContext) {
 
   const shouldShowChangelog = (installationType.isFirstInstall || installationType.isUpdate) && await changelogMessage();
   if (shouldShowChangelog) {
-    ThemeCommands.showChangelog();
+    releaseNotesView.show();
   }
 
   // Registering commands
@@ -47,7 +47,6 @@ export async function activate(context: ExtensionContext) {
   });
   Commands.registerCommand('materialTheme.fixIcons', () => ThemeCommands.fixIcons());
   Commands.registerCommand('materialTheme.toggleApplyIcons', () => ThemeCommands.toggleApplyIcons());
-  Commands.registerCommand('materialTheme.showChangelog', () => ThemeCommands.showChangelog());
 
   Commands.registerCommand('materialTheme.showReleaseNotes', () => releaseNotesView.show());
 }

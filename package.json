@@ -79,13 +79,8 @@
         "category": "🎨 Material Theme"
       },
       {
-        "command": "materialTheme.showChangelog",
-        "title": "Show changelog",
-        "category": "🎨 Material Theme"
-      },
-      {
         "command": "materialTheme.showReleaseNotes",
-        "title": "Release Notes (preview)",
+        "title": "Release Notes",
         "category": "🎨 Material Theme"
       }
     ],
