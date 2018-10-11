@@ -1,0 +1,4 @@
+
+div[class^="Toolbar_blockFormatContainer"] {
+  display: none;
+}
