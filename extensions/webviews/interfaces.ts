@@ -38,9 +38,9 @@ export interface SettingsBootstrap extends Bootstrap {
 }
 
 export interface ReleaseNotesBootstrap extends Bootstrap {
-  something: 'something';
+  some: 'some';
 }
 
 declare global {
-  interface Window { bootstrap: Bootstrap | SettingsBootstrap; }
+  interface Window { bootstrap: Bootstrap | SettingsBootstrap | ReleaseNotesBootstrap; }
 }
