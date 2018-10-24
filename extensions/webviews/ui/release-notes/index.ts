@@ -1,7 +1,7 @@
 import {IPost} from '../../interfaces';
 
 const getReleaseNotes = (): Promise<object[]> => {
-  const uri = 'https://raw.githubusercontent.com/lasalefamine/vsc-material-theme-releases/master/releases/index.json';
+  const uri = 'https://raw.githubusercontent.com/equinusocio/vsc-material-theme-releases/master/releases/index.json';
   return fetch(uri).then(res => res.json());
 };
 
