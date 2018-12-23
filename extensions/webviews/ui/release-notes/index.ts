@@ -1,13 +1,14 @@
 import * as sanityClient from '@sanity/client';
 
+import {IPost} from '../../interfaces';
+
 const getClient = () => sanityClient({
   projectId: 'v475t82f',
-  dataset: 'production',
-  token: 'skywTQVEqa902NDvMHoUATV9wSmVxPEdf93DVM3fvvXKSZnzGLMu0LzUNM96p8Uup2ZTBjIS5SbbQNZUSqU1KSKhnbWeMa2xhiaCprD8pcgOiWWN3r7sdppw6BgpMNT1zNJaWnyAKXmM3fjb0BNogddFHbKMOGv493lkVOTRBneZZ68tK8hj'
+  dataset: 'production'
 });
 
 const getReleaseNotes = (): Promise<object[]> => {
-  const query = '*[_type == "release"] | order(publishedDateDesc)';
+  const query = '*[_type == "release"] | order(_createdAt desc)';
   const client = getClient();
   return client.fetch(query);
 };
@@ -18,13 +19,20 @@ const renderTemplate = (posts: IPost[]) => {
       <span class="Release__Number">${version}</span>
       <h2 class="Release__Title">${title}</h2>
     </header>
-      ${fixed.reduce((accc, src) => accc.concat(`<li data-type="fixed">${src}</li>`), '')}
     <ul class="Release-List">
-      ${newItems.reduce((accc, src) => accc.concat(`<li data-type="new">${src}</li>`), '')}
-      ${breaking.reduce((accc, src) => accc.concat(`<li data-type="breaking">${src}</li>`), '')}
+      ${fixed.reduce((accc: string, src) => accc.concat(`<li data-type="fixed">${src}</li>`), '')}
+      ${newItems.reduce((accc: string, src) => accc.concat(`<li data-type="new">${src}</li>`), '')}
+      ${breaking.reduce((accc: string, src) => accc.concat(`<li data-type="breaking">${src}</li>`), '')}
     </ul>
   </section>`), '')}`;
 };
+
 getReleaseNotes().then((res: IPost[]) => {
-  document.querySelector('.Container').innerHTML = renderTemplate(res);
+  const normalized = res.reduce((acc, src) => acc.concat({
+    ...src,
+    fixed: src.fixed ? src.fixed.map(item => item.children[0].text) : [],
+    new: src.new ? src.new.map(item => item.children[0].text) : [],
+    breaking: src.breaking ? src.breaking.map(item => item.children[0].text) : []
+  }), []);
+  document.querySelector('.Container').innerHTML = renderTemplate(normalized);
 });

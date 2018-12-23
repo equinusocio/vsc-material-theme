@@ -1,12 +1,17 @@
 import {IThemeCustomSettings} from '../../extensions/interfaces/itheme-custom-properties';
 import {IDefaults} from '../../extensions/interfaces/idefaults';
 
+export interface IChangeType {
+  children: {
+    text: String;
+  }[];
+}
 export interface IPost {
   title: String;
   version: String;
-  fixed: String[];
-  new: String[];
-  breaking: String[];
+  fixed: IChangeType[];
+  new: IChangeType[];
+  breaking: IChangeType[];
 }
 
 export interface SettingsChangedMessage {

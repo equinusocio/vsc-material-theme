@@ -18,32 +18,36 @@
     reflect-metadata "^0.1.12"
     tslib "^1.8.1"
 
-"@sanity/client@0.134.2":
-  version "0.134.2"
-  resolved "https://registry.yarnpkg.com/@sanity/client/-/client-0.134.2.tgz#5f087cd3dd355df8c691bca7f0bcd11ef96b7f21"
+"@sanity/client@0.139.0":
+  version "0.139.0"
+  resolved "https://registry.yarnpkg.com/@sanity/client/-/client-0.139.0.tgz#9f1f247dd55abd48a4095a979bd28d1944a4328f"
+  integrity sha512-J7PTlsD2nzovhAPCUioOVUpmfim2G5cUkOfr3Bzz93RDUvQg1wrT93FdJ+/j7Y0842pwLXogLciK7R45ENlx1w==
   dependencies:
-    "@sanity/eventsource" "0.134.0"
-    "@sanity/generate-help-url" "0.134.0"
-    "@sanity/observable" "0.134.2"
+    "@sanity/eventsource" "0.139.0"
+    "@sanity/generate-help-url" "0.139.0"
+    "@sanity/observable" "0.139.0"
     deep-assign "^2.0.0"
     get-it "^4.0.1"
     make-error "^1.3.0"
     object-assign "^4.1.1"
 
-"@sanity/eventsource@0.134.0":
-  version "0.134.0"
-  resolved "https://registry.yarnpkg.com/@sanity/eventsource/-/eventsource-0.134.0.tgz#e927bd7c704996a640573265c80090746a09bba9"
+"@sanity/eventsource@0.139.0":
+  version "0.139.0"
+  resolved "https://registry.yarnpkg.com/@sanity/eventsource/-/eventsource-0.139.0.tgz#b03c05fd8a1d2a5278c6629a701bdb8277c2fa4e"
+  integrity sha512-yzIHIBGJOrfT43pIV+At5deOFYs3QBOM18zJInj9Gt5ceBBFa7SGC0k/g4/FdlSP71sE2bsivxf/9gi34RjSQg==
   dependencies:
     eventsource "^1.0.6"
     eventsource-polyfill "^0.9.6"
 
-"@sanity/generate-help-url@0.134.0":
-  version "0.134.0"
-  resolved "https://registry.yarnpkg.com/@sanity/generate-help-url/-/generate-help-url-0.134.0.tgz#5ebe4c1e09fff0c3626ea378ea113f0468c46833"
+"@sanity/generate-help-url@0.139.0":
+  version "0.139.0"
+  resolved "https://registry.yarnpkg.com/@sanity/generate-help-url/-/generate-help-url-0.139.0.tgz#cf31df07ec69b645f85284bb83aeb943be0db987"
+  integrity sha512-M5VMpZfF2KjuaHO5tatq+w+hD43cjmFiAD8z17NL8/rvB8GmTCmbF9ikqms0ZbVuIWT4rww8KCbV4up9NaJqHw==
 
-"@sanity/observable@0.134.2":
-  version "0.134.2"
-  resolved "https://registry.yarnpkg.com/@sanity/observable/-/observable-0.134.2.tgz#7ed9313b7f478ee38a4935b0a0a37b2600b31a9c"
+"@sanity/observable@0.139.0":
+  version "0.139.0"
+  resolved "https://registry.yarnpkg.com/@sanity/observable/-/observable-0.139.0.tgz#38554f2e198ae34c8ebe1b96d1ac8fc78eadbdc4"
+  integrity sha512-fxIYRyRx3tAhnDcV1utnCEFvY5XK6hooXCrWlrQZMa4YI5dXakcwfMzOZLEVOfXUVEMF8lrBgMaSvC7Y4Lo71g==
   dependencies:
     object-assign "^4.1.1"
     rxjs "^6.1.0"
