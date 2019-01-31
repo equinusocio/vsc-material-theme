@@ -12,7 +12,7 @@ import {
   Uri
 } from 'vscode';
 
-import {getCustomSettings} from '../../extensions/helpers/settings';
+import {getCustomSettings} from '../helpers/settings';
 import {Invalidates, Message, SettingsChangedMessage} from './interfaces';
 
 export abstract class WebviewController<TBootstrap> extends Disposable {
@@ -42,7 +42,7 @@ export abstract class WebviewController<TBootstrap> extends Disposable {
 
   private async getHtml(): Promise<string> {
     const doc = await Workspace
-      .openTextDocument(this.context.asAbsolutePath(path.join('ui', this.filename)));
+      .openTextDocument(this.context.asAbsolutePath(path.join('out/ui', this.filename)));
     return doc.getText();
   }
 
@@ -118,7 +118,7 @@ export abstract class WebviewController<TBootstrap> extends Disposable {
     const html = await this.getHtml();
 
     const rootPath = Uri
-      .file(this.context.asAbsolutePath('.'))
+      .file(this.context.asAbsolutePath('./out'))
       .with({scheme: 'vscode-resource'}).toString();
 
     // Replace placeholders in html content for assets and adding configurations as `window.bootstrap`

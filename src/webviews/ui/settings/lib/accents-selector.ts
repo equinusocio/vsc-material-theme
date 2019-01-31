@@ -1,4 +1,4 @@
-import {IAccents} from '../../../../../extensions/interfaces/idefaults';
+import {IAccents} from '../../../../interfaces/idefaults';
 
 const templateSingleAccent = (accentName: string, accentColor: string): string => {
   const dashAccentName = accentName.toLowerCase().replace(/ /gi, '-');

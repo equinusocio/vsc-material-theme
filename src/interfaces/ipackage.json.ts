@@ -1,4 +1,4 @@
-import {IGenericObject} from './../../extensions/interfaces/igeneric-object';
+import {IGenericObject} from '../interfaces/igeneric-object';
 
 export interface IPackageJSONBadge {
   description: string;
@@ -9,7 +9,6 @@ export interface IPackageJSONBadge {
 export interface IPackageJSONContributes {
   commands: IPackageJSONCommand[];
   configuration: IPackageJSONConfiguration;
-  iconThemes: IPackageJSONThemeIcons[];
   themes: IPackageJSONTheme[];
 }
 
@@ -27,12 +26,6 @@ export interface IPackageJSONTheme {
   label: string;
   path: string;
   uiTheme: string;
-}
-
-export interface IPackageJSONThemeIcons {
-  id: string;
-  label: string;
-  path: string;
 }
 
 export interface IPackageJSON {

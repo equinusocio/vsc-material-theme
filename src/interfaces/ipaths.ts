@@ -1,13 +1,5 @@
 export interface IPaths {
   /**
-   * Dist dir
-   */
-  DIST: string;
-  /**
-   * Icons dir
-   */
-  ICONS: string;
-  /**
    * Src dir
    */
   SRC: string;
@@ -19,6 +11,7 @@ export interface IPaths {
    * Extension directory
    */
   VSIX_DIR: string;
+  VSIX_SRC_DIR: string;
   /**
    * Internal Extensions directory
    */

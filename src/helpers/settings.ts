@@ -19,13 +19,6 @@ export function getCustomSettings(): IThemeCustomSettings {
 }
 
 /**
- * Get autoApplyIcons
- */
-export function isAutoApplyEnable(): boolean {
-  return vscode.workspace.getConfiguration().get<boolean>('materialTheme.autoApplyIcons');
-}
-
-/**
  * Get showReloadNotification
  */
 export function isReloadNotificationEnable(): boolean {
@@ -45,14 +38,6 @@ export function isAccent(accentName: string, defaults: IDefaults): boolean {
 export function isMaterialTheme(themeName: string): boolean {
   const packageJSON = getPackageJSON();
   return Boolean(packageJSON.contributes.themes.find(contrib => contrib.label === themeName));
-}
-
-/**
- * Determines if the passing icons theme is a material theme
- */
-export function isMaterialThemeIcons(themeIconsName: string): boolean {
-  const packageJSON = getPackageJSON();
-  return Boolean(packageJSON.contributes.iconThemes.find(contribute => contribute.id === themeIconsName));
 }
 
 /**

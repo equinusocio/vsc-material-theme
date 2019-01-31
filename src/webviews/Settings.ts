@@ -5,8 +5,8 @@ import {
   ExtensionContext
 } from 'vscode';
 import {SettingsBootstrap} from './interfaces';
-import {getCustomSettings} from '../../extensions/helpers/settings';
-import {getDefaultValues} from '../../extensions/helpers/fs';
+import {getCustomSettings} from '../helpers/settings';
+import {getDefaultValues} from '../helpers/fs';
 
 export class SettingsWebview extends WebviewController<SettingsBootstrap> {
   constructor(context: ExtensionContext) {

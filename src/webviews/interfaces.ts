@@ -1,5 +1,5 @@
-import {IThemeCustomSettings} from '../../extensions/interfaces/itheme-custom-properties';
-import {IDefaults} from '../../extensions/interfaces/idefaults';
+import {IThemeCustomSettings} from '../interfaces/itheme-custom-properties';
+import {IDefaults} from '../interfaces/idefaults';
 
 export interface IChangeType {
   children: {
