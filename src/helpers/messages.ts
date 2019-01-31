@@ -8,8 +8,7 @@ const MESSAGES = {
     options: {ok: 'Show me', cancel: 'Maybe later'}
   },
   INSTALLATION: {
-    message: 'Thank you for installing Material Theme! TODO',
-    options: {ok: 'Sure!', cancel: 'Nope :('}
+    message: 'Thank you for using Material Theme!'
   }
 };
 
@@ -22,7 +21,5 @@ export const changelogMessage = async () =>
 
 export const installationMessage = async () =>
   await Window.showInformationMessage(
-    MESSAGES.INSTALLATION.message,
-    MESSAGES.INSTALLATION.options.ok,
-    MESSAGES.INSTALLATION.options.cancel,
-  ) === MESSAGES.INSTALLATION.options.ok;
+    MESSAGES.INSTALLATION.message
+  );
