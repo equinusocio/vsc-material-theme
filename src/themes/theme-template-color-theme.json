@@ -100,7 +100,10 @@
         "punctuation.definition.tag.end.html",
         "punctuation.section.embedded",
         "keyword.other.template",
-        "keyword.other.substitution"
+        "keyword.other.substitution",
+        "meta.brace.round",
+        "meta.brace.square",
+        "meta.brace.curly"
       ],
       "settings": {
         "foreground": "{{variant.scheme.base.cyan}}"
