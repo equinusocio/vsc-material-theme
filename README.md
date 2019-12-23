@@ -1,10 +1,7 @@
-
 <p align="center"><img width="800px" src="https://i.ibb.co/LzRwxp4/Frame.jpg"></p>
 <p align="center">
 <a href="https://code.visualstudio.com/updates/v1_25"><img src="https://vsmarketplacebadge.apphb.com/rating-star/Equinusocio.vsc-material-theme.svg?style=for-the-badge&colorA=FBBD30&colorB=F2AA08"/></a> <a href="https://marketplace.visualstudio.com/items?itemName=Equinusocio.vsc-material-theme"><img src="https://vsmarketplacebadge.apphb.com/downloads-short/Equinusocio.vsc-material-theme.svg?style=for-the-badge&colorA=5DDB61&colorB=4BC74F&label=DOWNLOADS"/></a> <a href="https://a.paddle.com/v2/click/16413/37697?link=1227"><img src="https://img.shields.io/badge/Supported%20by-VSCode%20Power%20User%20Course%20%E2%86%92-gray.svg?colorA=655BE1&colorB=4F44D6&style=for-the-badge"/></a>
 </p>
-
-
 
 The most epic theme meets Visual Studio Code. You can help by reporting issues [here](https://github.com/equinusocio/vsc-material-theme/issues).
 
@@ -23,17 +20,19 @@ The most epic theme meets Visual Studio Code. You can help by reporting issues [
 - [Backers](#backers)
 - [Sponsors](#sponsors)
 
-
 ## Getting started
 
 You can install this awesome theme through the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/items?itemName=Equinusocio.vsc-material-theme).
 
 ### Installation
 
-Launch *Quick Open*:
-  - <img src="https://www.kernel.org/theme/images/logos/favicon.png" width=16 height=16/> <a href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf">Linux</a> `Ctrl+P`
-  - <img src="https://developer.apple.com/favicon.ico" width=16 height=16/> <a href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf">macOS</a> `⌘P`
-  - <img src="https://www.microsoft.com/favicon.ico" width=16 height=16/> <a href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf">Windows</a> `Ctrl+P`
+Launch _Quick Open_:
+
+|                                                                             |                                                                                              |          |
+| :-------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------- | :------- |
+| <img src="https://www.kernel.org/theme/images/logos/favicon.png" width=16/> | <a href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf">Linux</a>     | `Ctrl+P` |
+|        <img src="https://developer.apple.com/favicon.ico" width=16/>        | <a href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf">macOS</a>     | `⌘P`     |
+|         <img src="https://www.microsoft.com/favicon.ico" width=16/>         | <a href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf">Windows</a> | `Ctrl+P` |
 
 Paste the following command and press `Enter`:
 
@@ -51,16 +50,18 @@ And pick the one by **Mattia Astorino** (me) as author.
 code --install-extension vsc-material-theme-*.*.*.vsix
 ```
 
-or from within VS Code by launching *Quick Open* and running the *Install from VSIX...* command.
+or from within VS Code by launching _Quick Open_ and running the _Install from VSIX..._ command.
 
 ##### GitHub Repository Clone
 
 Change to your `.vscode/extensions` [VS Code extensions directory](https://code.visualstudio.com/docs/extensions/install-extension#_side-loading).
 Depending on your platform it is located in the following folders:
 
-  - <img src="https://www.kernel.org/theme/images/logos/favicon.png" width=16 height=16/> **Linux** `~/.vscode/extensions`
-  - <img src="https://developer.apple.com/favicon.ico" width=16 height=16/> **macOs** `~/.vscode/extensions`
-  - <img src="https://www.microsoft.com/favicon.ico" width=16 height=16/> **Windows** `%USERPROFILE%\.vscode\extensions`
+|                                                                             |             |                                    |
+| :-------------------------------------------------------------------------: | :---------- | :--------------------------------- |
+| <img src="https://www.kernel.org/theme/images/logos/favicon.png" width=16/> | **Linux**   | `~/.vscode/extensions`             |
+|        <img src="https://developer.apple.com/favicon.ico" width=16/>        | **macOs**   | `~/.vscode/extensions`             |
+|         <img src="https://www.microsoft.com/favicon.ico" width=16/>         | **Windows** | `%USERPROFILE%\.vscode\extensions` |
 
 Clone the Material Theme repository as `Equinusocio.vsc-material-theme`:
 
@@ -68,34 +69,38 @@ Clone the Material Theme repository as `Equinusocio.vsc-material-theme`:
 git clone https://github.com/equinusocio/vsc-material-theme.git Equinusocio.vsc-material-theme
 ```
 
-
 ## Activate theme
 
-Launch *Quick Open*:
+Launch _Quick Open_:
 
-  - <img src="https://www.kernel.org/theme/images/logos/favicon.png" width=16 height=16/> <a href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf">Linux</a> `Ctrl + Shift + P`
-  - <img src="https://developer.apple.com/favicon.ico" width=16 height=16/> <a href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf">macOS</a> `⌘ + Shift + P`
-  - <img src="https://www.microsoft.com/favicon.ico" width=16 height=16/> <a href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf">Windows</a> `Ctrl + Shift + P`
+|                                                                             |                                                                                              |                    |
+| :-------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------- | :----------------- |
+| <img src="https://www.kernel.org/theme/images/logos/favicon.png" width=16/> | <a href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf">Linux</a>     | `Ctrl + Shift + P` |
+|        <img src="https://developer.apple.com/favicon.ico" width=16/>        | <a href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf">macOS</a>     | `⌘ + Shift + P`    |
+|         <img src="https://www.microsoft.com/favicon.ico" width=16/>         | <a href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf">Windows</a> | `Ctrl + Shift + P` |
 
 Type `theme`, choose `Preferences: Color Theme`, and select one of the Material Theme variants from the list. After activation, the theme will set the correct icon theme based on your active theme variant.
 
 ## Set the accent color
 
-Launch *Quick Open*:
+Launch _Quick Open_:
 
-  - <img src="https://www.kernel.org/theme/images/logos/favicon.png" width=16 height=16/> <a href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf">Linux</a> `Ctrl + Shift + P`
-  - <img src="https://developer.apple.com/favicon.ico" width=16 height=16/> <a href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf">macOS</a> `⌘ + Shift + P`
-  - <img src="https://www.microsoft.com/favicon.ico" width=16 height=16/> <a href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf">Windows</a> `Ctrl + Shift + P`
+|                                                                             |                                                                                              |                    |
+| :-------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------- | :----------------- |
+| <img src="https://www.kernel.org/theme/images/logos/favicon.png" width=16/> | <a href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf">Linux</a>     | `Ctrl + Shift + P` |
+|        <img src="https://developer.apple.com/favicon.ico" width=16/>        | <a href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf">macOS</a>     | `⌘ + Shift + P`    |
+|         <img src="https://www.microsoft.com/favicon.ico" width=16/>         | <a href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf">Windows</a> | `Ctrl + Shift + P` |
 
 Type `material theme`, choose `Material Theme: Set accent color`, and pick one color from the list.
 
-
 ## Override theme colors
+
 You can override the Material Theme UI and schemes colors by adding these theme-specific settings to your configuration. For advanced customisation please check the [relative section on the VS Code documentation](https://code.visualstudio.com/docs/getstarted/themes#_customizing-a-color-theme).
 
 ### Color Scheme override
 
 **Basic example**
+
 ```js
 "editor.tokenColorCustomizations": {
     "[Material Theme]": {
@@ -148,6 +153,7 @@ You can override the Material Theme UI and schemes colors by adding these theme-
 ```
 
 ## Official Portings
+
 Thanks to the Material Theme community you can use is with other softwares, here the official portings:
 
 - Atom Editor: [atom-material-ui](https://github.com/silvestreh/atom-material-ui) (by [@silvestreh](https://github.com/silvestreh))
@@ -164,21 +170,19 @@ Thanks to the Material Theme community you can use is with other softwares, here
 - [Bear Notes](https://github.com/r3volution11/material-theme-bear-notes) (by [@r3volution11](https://github.com/r3volution11))
 
 ## Other resources
-- **AppIcon:** [Download](https://github.com/equinusocio/vsc-material-theme/files/989048/vsc-material-theme-appicon.zip) the official Material Theme app icon for Visual Studio code
 
+- **AppIcon:** [Download](https://github.com/equinusocio/vsc-material-theme/files/989048/vsc-material-theme-appicon.zip) the official Material Theme app icon for Visual Studio code
 
 ## Contributors
 
 This project exists thanks to all the people who contribute. [[Contribute]](CONTRIBUTING.md).
 <a href="graphs/contributors"><img src="https://opencollective.com/vsc-material-theme/contributors.svg?width=890" /></a>
 
-
 ## Backers
 
 Thank you to all our backers! 🙏 [[Become a backer](https://opencollective.com/vsc-material-theme#backer)]
 
 <a href="https://opencollective.com/vsc-material-theme#backers" target="_blank"><img src="https://opencollective.com/vsc-material-theme/backers.svg?width=890"></a>
-
 
 ## Sponsors
 
@@ -197,6 +201,6 @@ Support this project by becoming a sponsor. Your logo will show up here with a l
 
 ---
 
-<p align="center"> <img src="https://equinusocio.gallerycdn.vsassets.io/extensions/equinusocio/vsc-material-theme/0.0.14/1494970083238/Microsoft.VisualStudio.Services.Icons.Default" width=16 height=16/> Copyright &copy; 2019 Mattia Astorino & Alessio Occhipinti</p>
+<p align="center"> <img src="https://equinusocio.gallerycdn.vsassets.io/extensions/equinusocio/vsc-material-theme/0.0.14/1494970083238/Microsoft.VisualStudio.Services.Icons.Default" width=16/> Copyright &copy; 2019 Mattia Astorino & Alessio Occhipinti</p>
 
 <p align="center"><a href="http://www.apache.org/licenses/LICENSE-2.0"><img src="https://img.shields.io/badge/License-Apache_2.0-5E81AC.svg?style=flat-square"/></a></p>
