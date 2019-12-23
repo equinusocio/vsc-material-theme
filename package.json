@@ -29,7 +29,7 @@
     "lint": "eslint .",
     "build:ui": "node dist/scripts/ui/index.js",
     "build:generate-themes": "node dist/scripts/generator/index.js",
-    "build:ts": "tsc -p ./tsconfig.json",
+    "build:ts": "tsc -p ./tsconfig.json && cp -r dist/src/ build",
     "postinstall": "node ./node_modules/vscode/bin/install && opencollective postinstall && tsc -p tsconfig.json"
   },
   "categories": [
