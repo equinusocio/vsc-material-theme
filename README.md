@@ -28,8 +28,8 @@ You can install this awesome theme through the [Visual Studio Code Marketplace](
 
 Launch _Quick Open_:
 
-|                                                                             |                                                                                              |          |
-| :-------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------- | :------- |
+| | | |
+| :----------------: | :----------------: | :---------------- |
 | <img src="https://www.kernel.org/theme/images/logos/favicon.png" width=16/> | <a href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf">Linux</a>     | `Ctrl+P` |
 |        <img src="https://developer.apple.com/favicon.ico" width=16/>        | <a href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf">macOS</a>     | `⌘P`     |
 |         <img src="https://www.microsoft.com/favicon.ico" width=16/>         | <a href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf">Windows</a> | `Ctrl+P` |
@@ -57,8 +57,8 @@ or from within VS Code by launching _Quick Open_ and running the _Install from V
 Change to your `.vscode/extensions` [VS Code extensions directory](https://code.visualstudio.com/docs/extensions/install-extension#_side-loading).
 Depending on your platform it is located in the following folders:
 
-|                                                                             |             |                                    |
-| :-------------------------------------------------------------------------: | :---------- | :--------------------------------- |
+| | | |
+| :----------------: | :----------------: | :---------------- |
 | <img src="https://www.kernel.org/theme/images/logos/favicon.png" width=16/> | **Linux**   | `~/.vscode/extensions`             |
 |        <img src="https://developer.apple.com/favicon.ico" width=16/>        | **macOs**   | `~/.vscode/extensions`             |
 |         <img src="https://www.microsoft.com/favicon.ico" width=16/>         | **Windows** | `%USERPROFILE%\.vscode\extensions` |
@@ -73,8 +73,8 @@ git clone https://github.com/equinusocio/vsc-material-theme.git Equinusocio.vsc-
 
 Launch _Quick Open_:
 
-|                                                                             |                                                                                              |                    |
-| :-------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------- | :----------------- |
+| | | |
+| :----------------: | :----------------: | :---------------- |
 | <img src="https://www.kernel.org/theme/images/logos/favicon.png" width=16/> | <a href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf">Linux</a>     | `Ctrl + Shift + P` |
 |        <img src="https://developer.apple.com/favicon.ico" width=16/>        | <a href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf">macOS</a>     | `⌘ + Shift + P`    |
 |         <img src="https://www.microsoft.com/favicon.ico" width=16/>         | <a href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf">Windows</a> | `Ctrl + Shift + P` |
@@ -85,8 +85,8 @@ Type `theme`, choose `Preferences: Color Theme`, and select one of the Material 
 
 Launch _Quick Open_:
 
-|                                                                             |                                                                                              |                    |
-| :-------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------- | :----------------- |
+| | | |
+| :----------------: | :----------------: | :---------------- |
 | <img src="https://www.kernel.org/theme/images/logos/favicon.png" width=16/> | <a href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf">Linux</a>     | `Ctrl + Shift + P` |
 |        <img src="https://developer.apple.com/favicon.ico" width=16/>        | <a href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf">macOS</a>     | `⌘ + Shift + P`    |
 |         <img src="https://www.microsoft.com/favicon.ico" width=16/>         | <a href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf">Windows</a> | `Ctrl + Shift + P` |
