@@ -13,7 +13,7 @@ import {
 } from 'vscode';
 
 import {getCustomSettings} from '../helpers/settings';
-import {Invalidates, Message, SettingsChangedMessage} from './interfaces';
+import {Invalidates, Message, ISettingsChangedMessage} from './interfaces';
 
 export abstract class WebviewController<TBootstrap> extends Disposable {
   private panel: WebviewPanel | undefined;
@@ -117,7 +117,7 @@ export abstract class WebviewController<TBootstrap> extends Disposable {
     return this.postMessage({
       type: 'settingsChanged',
       config: getCustomSettings()
-    } as SettingsChangedMessage, 'config');
+    } as ISettingsChangedMessage, 'config');
   }
 
   private onPanelDisposed(): void {

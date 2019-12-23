@@ -2,11 +2,11 @@ import {WebviewController} from './Webview';
 import {
   workspace as Workspace
 } from 'vscode';
-import {SettingsBootstrap} from './interfaces';
+import {ISettingsBootstrap} from './interfaces';
 import {getCustomSettings} from '../helpers/settings';
 import {getDefaultValues} from '../helpers/fs';
 
-export class SettingsWebview extends WebviewController<SettingsBootstrap> {
+export class SettingsWebview extends WebviewController<ISettingsBootstrap> {
   get filename(): string {
     return 'settings.html';
   }
@@ -23,7 +23,7 @@ export class SettingsWebview extends WebviewController<SettingsBootstrap> {
    * This will be called by the WebviewController when init the view
    * passing as `window.bootstrap` to the view.
    */
-  getBootstrap(): SettingsBootstrap {
+  getBootstrap(): ISettingsBootstrap {
     return {
       config: getCustomSettings(),
       defaults: getDefaultValues(),
