@@ -29,7 +29,7 @@
     "lint": "eslint .",
     "build:ui": "node dist/scripts/ui/index.js",
     "build:generate-themes": "node dist/scripts/generator/index.js",
-    "build:ts": "tsc -p ./tsconfig.json && cp -r dist/src/ build",
+    "build:ts": "tsc -p ./tsconfig.json && ncp dist/src/ build",
     "postinstall": "node ./node_modules/vscode/bin/install && opencollective postinstall && tsc -p tsconfig.json"
   },
   "categories": [
@@ -167,6 +167,7 @@
     "eslint-config-xo-space": "0.22.0",
     "eslint-config-xo-typescript": "0.23.0",
     "fs-extra": "8.1.0",
+    "ncp": "2.0.0",
     "typescript": "3.7.4",
     "vscode": "1.1.36"
   },
