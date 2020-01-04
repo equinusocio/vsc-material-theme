@@ -177,7 +177,7 @@
     "tslint": "5.10.0",
     "tslint-xo": "0.8.0",
     "typescript": "2.9.2",
-    "vscode": "1.1.18",
+    "vscode": "1.1.36",
     "yargs": "11.0.0"
   },
   "__metadata": {
