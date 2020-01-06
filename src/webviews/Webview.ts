@@ -12,14 +12,13 @@ import {
   Uri
 } from 'vscode';
 
-import {getCustomSettings} from '../helpers/settings';
-import {Invalidates, Message, SettingsChangedMessage} from './interfaces';
+import {Invalidates, Message} from './interfaces';
 
 export abstract class WebviewController<TBootstrap> extends Disposable {
   private panel: WebviewPanel | undefined;
   private disposablePanel: Disposable | undefined;
   private invalidateOnVisible: Invalidates;
-  private context: ExtensionContext;
+  private readonly context: ExtensionContext;
 
   constructor(context: ExtensionContext) {
     // Applying dispose callback for our disposable function
@@ -28,89 +27,9 @@ export abstract class WebviewController<TBootstrap> extends Disposable {
     this.context = context;
   }
 
-  abstract get filename(): string;
-  abstract get id(): string;
-  abstract get title(): string;
-
-  abstract getBootstrap(): TBootstrap;
-
-  dispose() {
+  dispose(): void {
     if (this.disposablePanel) {
       this.disposablePanel.dispose();
-    }
-  }
-
-  private async getHtml(): Promise<string> {
-    const doc = await Workspace
-      .openTextDocument(this.context.asAbsolutePath(path.join('out/ui', this.filename)));
-    return doc.getText();
-  }
-
-  private postMessage(message: Message, invalidates: Invalidates = 'all') {
-    if (this.panel === undefined) {
-      return false;
-    }
-
-    const result = this.panel.webview.postMessage(message);
-
-    // If post was ok, update invalidateOnVisible if different than default
-    if (!result && this.invalidateOnVisible !== 'all') {
-      this.invalidateOnVisible = invalidates;
-    }
-
-    return result;
-  }
-
-  private postUpdatedConfiguration() {
-    // Post full raw configuration
-    return this.postMessage({
-      type: 'settingsChanged',
-      config: getCustomSettings()
-    } as SettingsChangedMessage, 'config');
-  }
-
-  private onPanelDisposed() {
-    if (this.disposablePanel) {
-      this.disposablePanel.dispose();
-    }
-
-    this.panel = undefined;
-  }
-
-  private onViewStateChanged(event: WebviewPanelOnDidChangeViewStateEvent) {
-    console.log('WebviewEditor.onViewStateChanged', event.webviewPanel.visible);
-
-    if (!this.invalidateOnVisible || !event.webviewPanel.visible) {
-      return;
-    }
-
-    // Update the view since it can be outdated
-    const invalidContext = this.invalidateOnVisible;
-    this.invalidateOnVisible = undefined;
-
-    switch (invalidContext) {
-      case 'config':
-        // Post the new configuration to the view
-        return this.postUpdatedConfiguration();
-      default:
-        return this.show();
-    }
-  }
-
-  protected async onMessageReceived(event: Message) {
-    if (event === null) {
-      return;
-    }
-
-    console.log(`WebviewEditor.onMessageReceived: type=${event.type}, data=${JSON.stringify(event)}`);
-
-    switch (event.type) {
-      case 'saveSettings':
-        // TODO: update settings
-        return;
-
-      default:
-        return;
     }
   }
 
@@ -118,7 +37,7 @@ export abstract class WebviewController<TBootstrap> extends Disposable {
     const html = await this.getHtml();
 
     const rootPath = Uri
-      .file(this.context.asAbsolutePath('./out'))
+      .file(this.context.asAbsolutePath('./build'))
       .with({scheme: 'vscode-resource'}).toString();
 
     // Replace placeholders in html content for assets and adding configurations as `window.bootstrap`
@@ -154,4 +73,83 @@ export abstract class WebviewController<TBootstrap> extends Disposable {
 
     this.panel.webview.html = fullHtml;
   }
+
+  protected onMessageReceived(event: Message): void {
+    if (event === null) {
+      return;
+    }
+
+    console.log(`WebviewEditor.onMessageReceived: type=${event.type}, data=${JSON.stringify(event)}`);
+
+    switch (event.type) {
+      case 'saveSettings':
+        // TODO: update settings
+        break;
+      default:
+        break;
+    }
+  }
+
+  private async getHtml(): Promise<string> {
+    const doc = await Workspace
+      .openTextDocument(this.context.asAbsolutePath(path.join('build/ui', this.filename)));
+    return doc.getText();
+  }
+
+  // Private async postMessage(message: Message, invalidates: Invalidates = 'all'): Promise<boolean> {
+  //   if (this.panel === undefined) {
+  //     return false;
+  //   }
+
+  //   const result = await this.panel.webview.postMessage(message);
+
+  //   // If post was ok, update invalidateOnVisible if different than default
+  //   if (!result && this.invalidateOnVisible !== 'all') {
+  //     this.invalidateOnVisible = invalidates;
+  //   }
+
+  //   return result;
+  // }
+
+  // Private async postUpdatedConfiguration(): Promise<boolean> {
+  //   // Post full raw configuration
+  //   return this.postMessage({
+  //     type: 'settingsChanged',
+  //     config: getCustomSettings()
+  //   } as ISettingsChangedMessage, 'config');
+  // }
+
+  private onPanelDisposed(): void {
+    if (this.disposablePanel) {
+      this.disposablePanel.dispose();
+    }
+
+    this.panel = undefined;
+  }
+
+  private async onViewStateChanged(event: WebviewPanelOnDidChangeViewStateEvent): Promise<boolean | void> {
+    console.log('WebviewEditor.onViewStateChanged', event.webviewPanel.visible);
+
+    if (!this.invalidateOnVisible || !event.webviewPanel.visible) {
+      return;
+    }
+
+    // Update the view since it can be outdated
+    const invalidContext = this.invalidateOnVisible;
+    this.invalidateOnVisible = undefined;
+
+    switch (invalidContext) {
+      case 'config':
+        // Post the new configuration to the view
+        // return this.postUpdatedConfiguration();
+        return;
+      default:
+        return this.show();
+    }
+  }
+
+  abstract get filename(): string;
+  abstract get id(): string;
+  abstract get title(): string;
+  abstract getBootstrap(): TBootstrap;
 }

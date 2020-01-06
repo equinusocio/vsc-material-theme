@@ -2,11 +2,12 @@
   "compilerOptions": {
     "module": "commonjs",
     "target": "es6",
-    "outDir": "out",
+    "outDir": "dist",
     "lib": [
       "es7",
       "dom"
     ],
+    "esModuleInterop": true,
     "sourceMap": true,
     "allowUnreachableCode": false,
     "noUnusedLocals": true,
@@ -15,13 +16,15 @@
     "resolveJsonModule": true
   },
   "include": [
-    "./.gulp/**/*",
-    "./typings/**/*",
+    "./types",
     "./src/**/*",
     "./test/**/*",
+    "./scripts/**/*"
   ],
   "exclude": [
     "node_modules",
+    "dist",
+    "build",
     ".vscode-test"
   ]
 }
