@@ -127,7 +127,7 @@ export abstract class WebviewController<TBootstrap> extends Disposable {
     this.panel = undefined;
   }
 
-  private async onViewStateChanged(event: WebviewPanelOnDidChangeViewStateEvent): Promise<boolean | void> {
+  private async onViewStateChanged(event: WebviewPanelOnDidChangeViewStateEvent): Promise<void> {
     console.log('WebviewEditor.onViewStateChanged', event.webviewPanel.visible);
 
     if (!this.invalidateOnVisible || !event.webviewPanel.visible) {
